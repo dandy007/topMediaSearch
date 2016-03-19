@@ -1,2 +1,2 @@
-include 'mod-content-provider'
 include 'mod-youtube-search'
+include 'mod-content-provider'

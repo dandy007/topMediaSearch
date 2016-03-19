@@ -5,5 +5,8 @@ repositories {
 }
 
 dependencies {
-
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile project(':mod-content-provider')
+    testCompile 'junit:junit:4.12'
 }

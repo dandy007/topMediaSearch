@@ -1,5 +1,6 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
+import org.jsoup.nodes.Document;
 import org.junit.Test;
 
 import common.WebPageDownloader;
@@ -9,7 +10,7 @@ public class WebPageDownloaderTest {
 	@Test
 	public void getContentTest() {
 		String url = "https://youtube.com";
-		String result = null;
+		Document result = null;
 		try {
 			result = WebPageDownloader.getContent(url);
 		} catch (Exception e) {}
