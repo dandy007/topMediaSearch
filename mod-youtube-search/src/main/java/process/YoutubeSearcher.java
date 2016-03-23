@@ -6,10 +6,10 @@ import java.util.List;
 import com.google.api.services.youtube.model.SearchResult;
 import com.google.api.services.youtube.model.Video;
 
-import common.YoutubeUtils;
-import content.youtube.YoutubeContentProvider;
-import data.YoutubeVideoData;
-import mapper.YoutubeDataMapper;
+import content.youtube.data.YoutubeVideoData;
+import content.youtube.data.mapper.YoutubeDataMapper;
+import content.youtube.provider.YoutubeContentProvider;
+import content.youtube.util.YoutubeUtils;
 
 public class YoutubeSearcher {
 

@@ -6,8 +6,8 @@ import java.util.List;
 import com.google.api.services.youtube.model.SearchResult;
 import com.google.api.services.youtube.model.Video;
 
-import common.YoutubeUtils;
-import content.youtube.YoutubeContentProvider;
+import content.youtube.provider.YoutubeContentProvider;
+import content.youtube.util.YoutubeUtils;
 
 public class Launcher {
 
@@ -22,7 +22,7 @@ public class Launcher {
 		  YoutubeContentProvider.ORDER__VIEWCOUNT, 
 		  YoutubeContentProvider.TYPE__VIDEO, 
 		  null, // no token 
-		  100L
+		  1L
 		);
 		
 		

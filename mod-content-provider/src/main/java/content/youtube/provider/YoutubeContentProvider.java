@@ -1,4 +1,4 @@
-package content.youtube;
+package content.youtube.provider;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -146,8 +146,9 @@ public class YoutubeContentProvider {
     
     boolean goNext = true;
     
+    int fetchedCount = 0;
+    
     while (goNext) {
-      
       if (numRows != null) {
         if (numRows <= MAX_NUMBER_OF_VIDEOS_RETURNED) {
           search.setMaxResults(numRows);
@@ -172,6 +173,8 @@ public class YoutubeContentProvider {
           goNext = false;
         } else {
           resultList.addAll(searchResponse.getItems());
+          fetchedCount += searchResponse.getItems().size();
+          System.out.println("Fetched videos: " + fetchedCount);
         }
         
         if (searchResponse.getNextPageToken() != null) {

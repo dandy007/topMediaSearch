@@ -1,4 +1,4 @@
-package data;
+package content.youtube.data;
 
 import java.math.BigInteger;
 import java.net.MalformedURLException;

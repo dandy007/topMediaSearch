@@ -2,7 +2,7 @@ package ordering;
 
 import java.util.Comparator;
 
-import data.YoutubeVideoData;
+import content.youtube.data.YoutubeVideoData;
 
 public class YoutubeDataVideoComparator implements Comparator<YoutubeVideoData> {
 

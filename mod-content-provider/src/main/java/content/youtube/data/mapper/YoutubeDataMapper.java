@@ -1,4 +1,4 @@
-package mapper;
+package content.youtube.data.mapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import com.google.api.services.youtube.model.SearchResultSnippet;
 import com.google.api.services.youtube.model.Video;
 import com.google.api.services.youtube.model.VideoStatistics;
 
-import data.YoutubeVideoData;
+import content.youtube.data.YoutubeVideoData;
 
 public class YoutubeDataMapper {
 
