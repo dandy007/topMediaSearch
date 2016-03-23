@@ -17,6 +17,7 @@ public class Launcher {
 		
 		
 		List<SearchResult> result = provider.fetchItems(
+		  null, // relatedTo
 		  null, // all
 		  YoutubeContentProvider.ORDER__VIEWCOUNT, 
 		  YoutubeContentProvider.TYPE__VIDEO, 
@@ -39,18 +40,11 @@ public class Launcher {
   		}
 		}
 		
-//		for (SearchResult resultItem: result) {
-//		  ResourceId rId = resultItem.getId();
-//		  
-//      // Confirm that the result represents a video. Otherwise, the
-//      // item will not contain a video ID.
-//      if (rId.getKind().equals("youtube#video")) {
-//		  
-//        System.out.println(" Video Id" + rId.getVideoId());
-//        System.out.println(" Title: " + resultItem.getSnippet().getTitle());
-//        System.out.println("\n-------------------------------------------------------------\n");
-//      }
-//		}
+		
+		
+
+		
+		
 	}
 
 }

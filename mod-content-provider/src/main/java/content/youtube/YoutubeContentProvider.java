@@ -130,7 +130,7 @@ public class YoutubeContentProvider {
     return videoResult.isEmpty() ? null : videoResult;
   }
   
-  public List<SearchResult> fetchItems(String query, String order, String type, String pageToken, Long numRows) throws IOException {
+  public List<SearchResult> fetchItems(String videoId, String query, String order, String type, String pageToken, Long numRows) throws IOException {
     YouTube.Search.List search = youtube.search().list(PART__ID + "," + PART__SNIPPET);
     search.setKey(API_KEY);
     
@@ -138,6 +138,7 @@ public class YoutubeContentProvider {
     if (type != null) search.setType(type);
     if (order != null) search.setOrder(order);
     if (pageToken != null) search.setPageToken(pageToken);
+    if (videoId != null) search.setRelatedToVideoId(videoId);
 
     //search.setFields("items(id/videoId,id/kind,snippet/title)"); TODO optimize
     

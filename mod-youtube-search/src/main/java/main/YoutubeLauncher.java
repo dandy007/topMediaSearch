@@ -1,21 +1,24 @@
 package main;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
-import parser.YoutubePageParser;
+import data.YoutubeVideoData;
+import export.YoutubeExporter;
+import ordering.YoutubeDataVideoComparator;
+import process.YoutubeSearcher;
 
 public class YoutubeLauncher {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+	  YoutubeSearcher searcher = new YoutubeSearcher();
+	  List<YoutubeVideoData> result = searcher.getTopVideos("avicii levels", 1000);
+	  System.out.println("Search complete");
 	  
-	  try {
-      new YoutubePageParser().parse(new URL("https://www.youtube.com/results?q=stop&sp=CAM%253D"));
-    } catch (MalformedURLException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+	  Collections.sort(result, new YoutubeDataVideoComparator());
 	  
+	  YoutubeExporter.exportData(result);
 	}
 
 }
