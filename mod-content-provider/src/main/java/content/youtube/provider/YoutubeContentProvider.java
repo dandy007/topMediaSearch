@@ -22,7 +22,7 @@ public class YoutubeContentProvider {
   
   private static final String PROPERTIES_FILENAME = "youtube.properties";
 
-  private static final int MAX_NUMBER_OF_VIDEOS_RETURNED = 50;
+  public static final int MAX_NUMBER_OF_VIDEOS_RETURNED = 50;
 
   private YouTube youtube;
   private Properties properties;
@@ -121,6 +121,7 @@ public class YoutubeContentProvider {
           & result.getItems() != null
       ) {
         videoResult.addAll(result.getItems());
+        System.out.println("Fetched details " + videoResult.size() + " from " + idArray.length);
       }
       
       lastIndex += idArrayPart.length;
@@ -139,6 +140,7 @@ public class YoutubeContentProvider {
     if (order != null) search.setOrder(order);
     if (pageToken != null) search.setPageToken(pageToken);
     if (videoId != null) search.setRelatedToVideoId(videoId);
+    search.setVideoCategoryId("10"); // TODO "music category"
 
     //search.setFields("items(id/videoId,id/kind,snippet/title)"); TODO optimize
     
@@ -174,7 +176,7 @@ public class YoutubeContentProvider {
         } else {
           resultList.addAll(searchResponse.getItems());
           fetchedCount += searchResponse.getItems().size();
-          System.out.println("Fetched videos: " + fetchedCount);
+//          System.out.println("Fetched videos: " + fetchedCount);
         }
         
         if (searchResponse.getNextPageToken() != null) {

@@ -1,25 +1,28 @@
 package main;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 import content.youtube.data.YoutubeVideoData;
 import content.youtube.db.YoutubeDbDao;
 import export.YoutubeExporter;
-import ordering.YoutubeDataVideoComparator;
 import process.YoutubeSearcher;
 
 public class YoutubeLauncher {
 
 	public static void main(String[] args) throws IOException {
 	  YoutubeSearcher searcher = new YoutubeSearcher();
-	  List<YoutubeVideoData> result = searcher.getTopVideos(null, 100000);
+	  List<YoutubeVideoData> result = searcher.deepSearch("CFF0mV24WCY", 100000);
 	  System.out.println("Search complete");
 	  
-	  Collections.sort(result, new YoutubeDataVideoComparator());
+//	  Collections.sort(result, new YoutubeDataVideoComparator());
 	  
+	  int count = 0;
 	  for (YoutubeVideoData data: result) {
+	    count++;
+	    if (count % 100 == 0) {
+	      System.out.println("Perform db operations " + count + " / " + + result.size());
+	    }
 	    YoutubeDbDao.insertData(data);
 	  }
 	  
