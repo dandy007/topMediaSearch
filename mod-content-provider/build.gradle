@@ -1,7 +1,22 @@
+plugins {
+    id "org.flywaydb.flyway" version "4.0.1"
+}
+
 apply plugin: 'java'
 
 repositories {
     jcenter()
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3306'
+    user = 'root'
+    password = 'dandy'
+    schemas = ['youtube']
+}
+
+dependencies {
+	
 }
 
 dependencies {
@@ -9,5 +24,6 @@ dependencies {
     compile 'org.jsoup:jsoup:1.8.3'
     compile 'com.google.apis:google-api-services-youtube:v3-rev163-1.21.0'
     compile 'mysql:mysql-connector-java:5.1.38'
+    compile 'org.flywaydb:flyway-gradle-plugin:3.1'
     testCompile 'junit:junit:4.12'
 }

@@ -12,7 +12,7 @@ public class YoutubeLauncher {
 
 	public static void main(String[] args) throws IOException {
 	  YoutubeSearcher searcher = new YoutubeSearcher();
-	  List<YoutubeVideoData> result = searcher.deepSearch("CFF0mV24WCY", 100000);
+	  List<YoutubeVideoData> result = searcher.deepSearch("OXWrjWDQh7Q", 10000);
 	  System.out.println("Search complete");
 	  
 //	  Collections.sort(result, new YoutubeDataVideoComparator());
